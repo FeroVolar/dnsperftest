@@ -5,14 +5,12 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 
 
 
-NAMESERVERS=`cat /etc/resolv.conf | grep ^nameserver | cut -d " " -f 2 | sed 's/\(.*\)/&#&/'`
+NAMESERVERS=`cat /etc/resolv.conf |grep nameserver | cut -d " " -f 2 | sed 's/\(.*\)/&#&/'`
 
 PROVIDERS="
 1.1.1.1#cloudflare 
-4.2.2.1#level3 
 8.8.8.8#google 
 9.9.9.9#quad9 
-80.80.80.80#freenom 
 208.67.222.123#opendns 
 199.85.126.20#norton 
 185.228.168.168#cleanbrowsing 
@@ -20,10 +18,13 @@ PROVIDERS="
 176.103.130.132#adguard 
 156.154.70.3#neustar 
 8.26.56.26#comodo
+195.210.28.30#ns1.websupport.sk
+195.210.29.64#ns2.websupport.sk
+62.176.179.10#ns3.websupport.sk
 "
 
 # Domains to test. Duplicated domains are ok
-DOMAINS2TEST="www.google.com amazon.com facebook.com www.youtube.com www.reddit.com  wikipedia.org twitter.com gmail.com www.google.com whatsapp.com"
+DOMAINS2TEST="www.google.com amazon.com facebook.com www.youtube.com www.reddit.com  wikipedia.org twitter.com gmail.com www.google.com whatsapp.com websupport.sk websupport.cz webonic.hu"
 
 
 totaldomains=0
